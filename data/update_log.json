@@ -1,0 +1,1300 @@
+{
+  "startedAt": "2026-09-15T12:31:22+08:00",
+  "finishedAt": "2026-09-15T12:32:19+08:00",
+  "preferYear": 2026,
+  "dryRun": false,
+  "targets": [
+    "圣邦股份",
+    "纳芯微",
+    "杰华特",
+    "南芯科技",
+    "思瑞浦",
+    "晶丰明源",
+    "艾为电子",
+    "英集芯",
+    "芯朋微",
+    "希荻微",
+    "必易微",
+    "力芯微",
+    "美芯晟"
+  ],
+  "counts": {
+    "updated": 140,
+    "skipped": 30,
+    "error": 0,
+    "info": 13,
+    "dry_run": 0
+  },
+  "entries": [
+    {
+      "company": "圣邦股份",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "圣邦股份",
+      "field": "rev26",
+      "status": "updated",
+      "old": 259543,
+      "new": 259543
+    },
+    {
+      "company": "圣邦股份",
+      "field": "rev25",
+      "status": "updated",
+      "old": 181878,
+      "new": 181878
+    },
+    {
+      "company": "圣邦股份",
+      "field": "np26",
+      "status": "updated",
+      "old": 42032,
+      "new": 42032
+    },
+    {
+      "company": "圣邦股份",
+      "field": "np25",
+      "status": "updated",
+      "old": 20084,
+      "new": 20084
+    },
+    {
+      "company": "圣邦股份",
+      "field": "gm26",
+      "status": "updated",
+      "old": 51.8,
+      "new": 51.8
+    },
+    {
+      "company": "圣邦股份",
+      "field": "gm25",
+      "status": "updated",
+      "old": 50.2,
+      "new": 50.2
+    },
+    {
+      "company": "圣邦股份",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "圣邦股份",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "圣邦股份",
+      "field": "sales26",
+      "status": "updated",
+      "old": 16737,
+      "new": 16737
+    },
+    {
+      "company": "圣邦股份",
+      "field": "inv26",
+      "status": "updated",
+      "old": 167708,
+      "new": 167708
+    },
+    {
+      "company": "圣邦股份",
+      "field": "inv25",
+      "status": "updated",
+      "old": 115591,
+      "new": 115591
+    },
+    {
+      "company": "圣邦股份",
+      "field": "cash",
+      "status": "updated",
+      "old": 46.3,
+      "new": 46.3
+    },
+    {
+      "company": "圣邦股份",
+      "field": "cfo",
+      "status": "updated",
+      "old": 3.8,
+      "new": 3.8
+    },
+    {
+      "company": "纳芯微",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "纳芯微",
+      "field": "rev26",
+      "status": "updated",
+      "old": 254042,
+      "new": 254042
+    },
+    {
+      "company": "纳芯微",
+      "field": "rev25",
+      "status": "updated",
+      "old": 152366,
+      "new": 152366
+    },
+    {
+      "company": "纳芯微",
+      "field": "np26",
+      "status": "updated",
+      "old": 6506,
+      "new": 6759
+    },
+    {
+      "company": "纳芯微",
+      "field": "np25",
+      "status": "updated",
+      "old": -7801,
+      "new": -7801
+    },
+    {
+      "company": "纳芯微",
+      "field": "gm26",
+      "status": "updated",
+      "old": 32.1,
+      "new": 32.1
+    },
+    {
+      "company": "纳芯微",
+      "field": "gm25",
+      "status": "updated",
+      "old": 35.2,
+      "new": 35.2
+    },
+    {
+      "company": "纳芯微",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "纳芯微",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "纳芯微",
+      "field": "sales26",
+      "status": "updated",
+      "old": 14062,
+      "new": 14062
+    },
+    {
+      "company": "纳芯微",
+      "field": "inv26",
+      "status": "updated",
+      "old": 165793,
+      "new": 165793
+    },
+    {
+      "company": "纳芯微",
+      "field": "inv25",
+      "status": "updated",
+      "old": 105346,
+      "new": 105346
+    },
+    {
+      "company": "纳芯微",
+      "field": "cash",
+      "status": "updated",
+      "old": 23.6,
+      "new": 23.6
+    },
+    {
+      "company": "纳芯微",
+      "field": "cfo",
+      "status": "updated",
+      "old": -7.1,
+      "new": -7.1
+    },
+    {
+      "company": "杰华特",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "杰华特",
+      "field": "rev26",
+      "status": "updated",
+      "old": 171837,
+      "new": 171837
+    },
+    {
+      "company": "杰华特",
+      "field": "rev25",
+      "status": "updated",
+      "old": 118735,
+      "new": 118735
+    },
+    {
+      "company": "杰华特",
+      "field": "np26",
+      "status": "updated",
+      "old": -54175,
+      "new": -51997
+    },
+    {
+      "company": "杰华特",
+      "field": "np25",
+      "status": "updated",
+      "old": -30114,
+      "new": -29509
+    },
+    {
+      "company": "杰华特",
+      "field": "gm26",
+      "status": "updated",
+      "old": 23.9,
+      "new": 23.9
+    },
+    {
+      "company": "杰华特",
+      "field": "gm25",
+      "status": "updated",
+      "old": 28.2,
+      "new": 28.2
+    },
+    {
+      "company": "杰华特",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "杰华特",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "杰华特",
+      "field": "sales26",
+      "status": "updated",
+      "old": 11287,
+      "new": 11287
+    },
+    {
+      "company": "杰华特",
+      "field": "inv26",
+      "status": "updated",
+      "old": 125345,
+      "new": 125345
+    },
+    {
+      "company": "杰华特",
+      "field": "inv25",
+      "status": "updated",
+      "old": 92663,
+      "new": 92663
+    },
+    {
+      "company": "杰华特",
+      "field": "cash",
+      "status": "updated",
+      "old": 2.1,
+      "new": 2.1
+    },
+    {
+      "company": "杰华特",
+      "field": "cfo",
+      "status": "updated",
+      "old": -7.8,
+      "new": -7.8
+    },
+    {
+      "company": "南芯科技",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "南芯科技",
+      "field": "rev26",
+      "status": "updated",
+      "old": 154639,
+      "new": 154639
+    },
+    {
+      "company": "南芯科技",
+      "field": "rev25",
+      "status": "updated",
+      "old": 147015,
+      "new": 147015
+    },
+    {
+      "company": "南芯科技",
+      "field": "np26",
+      "status": "updated",
+      "old": -4487,
+      "new": -4487
+    },
+    {
+      "company": "南芯科技",
+      "field": "np25",
+      "status": "updated",
+      "old": 12266,
+      "new": 12266
+    },
+    {
+      "company": "南芯科技",
+      "field": "gm26",
+      "status": "updated",
+      "old": 35.3,
+      "new": 35.3
+    },
+    {
+      "company": "南芯科技",
+      "field": "gm25",
+      "status": "updated",
+      "old": 37.0,
+      "new": 37.0
+    },
+    {
+      "company": "南芯科技",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "南芯科技",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "南芯科技",
+      "field": "sales26",
+      "status": "updated",
+      "old": 8510,
+      "new": 8510
+    },
+    {
+      "company": "南芯科技",
+      "field": "inv26",
+      "status": "updated",
+      "old": 110248,
+      "new": 110248
+    },
+    {
+      "company": "南芯科技",
+      "field": "inv25",
+      "status": "updated",
+      "old": 72286,
+      "new": 72286
+    },
+    {
+      "company": "南芯科技",
+      "field": "cash",
+      "status": "updated",
+      "old": 27.8,
+      "new": 27.8
+    },
+    {
+      "company": "南芯科技",
+      "field": "cfo",
+      "status": "updated",
+      "old": -1.0,
+      "new": -1.0
+    },
+    {
+      "company": "思瑞浦",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "思瑞浦",
+      "field": "rev26",
+      "status": "updated",
+      "old": 160582,
+      "new": 160582
+    },
+    {
+      "company": "思瑞浦",
+      "field": "rev25",
+      "status": "updated",
+      "old": 94915,
+      "new": 94915
+    },
+    {
+      "company": "思瑞浦",
+      "field": "np26",
+      "status": "updated",
+      "old": 30776,
+      "new": 30776
+    },
+    {
+      "company": "思瑞浦",
+      "field": "np25",
+      "status": "updated",
+      "old": 6569,
+      "new": 6569
+    },
+    {
+      "company": "思瑞浦",
+      "field": "gm26",
+      "status": "updated",
+      "old": 49,
+      "new": 49.0
+    },
+    {
+      "company": "思瑞浦",
+      "field": "gm25",
+      "status": "updated",
+      "old": 46.4,
+      "new": 46.4
+    },
+    {
+      "company": "思瑞浦",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "思瑞浦",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "思瑞浦",
+      "field": "sales26",
+      "status": "updated",
+      "old": 8200,
+      "new": 8200
+    },
+    {
+      "company": "思瑞浦",
+      "field": "inv26",
+      "status": "updated",
+      "old": 55628,
+      "new": 55628
+    },
+    {
+      "company": "思瑞浦",
+      "field": "inv25",
+      "status": "updated",
+      "old": 37398,
+      "new": 37397
+    },
+    {
+      "company": "思瑞浦",
+      "field": "cash",
+      "status": "updated",
+      "old": 9,
+      "new": 9.0
+    },
+    {
+      "company": "思瑞浦",
+      "field": "cfo",
+      "status": "updated",
+      "old": 3.5,
+      "new": 3.6
+    },
+    {
+      "company": "晶丰明源",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "晶丰明源",
+      "field": "rev26",
+      "status": "updated",
+      "old": 145227,
+      "new": 145227
+    },
+    {
+      "company": "晶丰明源",
+      "field": "rev25",
+      "status": "updated",
+      "old": 73149,
+      "new": 73149
+    },
+    {
+      "company": "晶丰明源",
+      "field": "np26",
+      "status": "updated",
+      "old": 8655,
+      "new": 8655
+    },
+    {
+      "company": "晶丰明源",
+      "field": "np25",
+      "status": "updated",
+      "old": 1980,
+      "new": 1576
+    },
+    {
+      "company": "晶丰明源",
+      "field": "gm26",
+      "status": "updated",
+      "old": 37.2,
+      "new": 37.2
+    },
+    {
+      "company": "晶丰明源",
+      "field": "gm25",
+      "status": "updated",
+      "old": 39.6,
+      "new": 39.6
+    },
+    {
+      "company": "晶丰明源",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "晶丰明源",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "晶丰明源",
+      "field": "sales26",
+      "status": "updated",
+      "old": 6201,
+      "new": 6201
+    },
+    {
+      "company": "晶丰明源",
+      "field": "inv26",
+      "status": "updated",
+      "old": 69351,
+      "new": 69351
+    },
+    {
+      "company": "晶丰明源",
+      "field": "inv25",
+      "status": "updated",
+      "old": 27636,
+      "new": 27636
+    },
+    {
+      "company": "晶丰明源",
+      "field": "cash",
+      "status": "updated",
+      "old": 10.1,
+      "new": 10.1
+    },
+    {
+      "company": "晶丰明源",
+      "field": "cfo",
+      "status": "updated",
+      "old": 0.6,
+      "new": 0.6
+    },
+    {
+      "company": "艾为电子",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "艾为电子",
+      "field": "rev26",
+      "status": "updated",
+      "old": 135043,
+      "new": 135043
+    },
+    {
+      "company": "艾为电子",
+      "field": "rev25",
+      "status": "updated",
+      "old": 136956,
+      "new": 136956
+    },
+    {
+      "company": "艾为电子",
+      "field": "np26",
+      "status": "updated",
+      "old": 9487,
+      "new": 9487
+    },
+    {
+      "company": "艾为电子",
+      "field": "np25",
+      "status": "updated",
+      "old": 15652,
+      "new": 15652
+    },
+    {
+      "company": "艾为电子",
+      "field": "gm26",
+      "status": "updated",
+      "old": 31.1,
+      "new": 31.1
+    },
+    {
+      "company": "艾为电子",
+      "field": "gm25",
+      "status": "updated",
+      "old": 36.1,
+      "new": 36.1
+    },
+    {
+      "company": "艾为电子",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "艾为电子",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "艾为电子",
+      "field": "sales26",
+      "status": "updated",
+      "old": 4550,
+      "new": 4550
+    },
+    {
+      "company": "艾为电子",
+      "field": "inv26",
+      "status": "updated",
+      "old": 64786,
+      "new": 64786
+    },
+    {
+      "company": "艾为电子",
+      "field": "inv25",
+      "status": "updated",
+      "old": 63152,
+      "new": 63152
+    },
+    {
+      "company": "艾为电子",
+      "field": "cash",
+      "status": "updated",
+      "old": 8.8,
+      "new": 8.7
+    },
+    {
+      "company": "艾为电子",
+      "field": "cfo",
+      "status": "updated",
+      "old": 0,
+      "new": 0.0
+    },
+    {
+      "company": "英集芯",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "英集芯",
+      "field": "rev26",
+      "status": "updated",
+      "old": 80861,
+      "new": 80861
+    },
+    {
+      "company": "英集芯",
+      "field": "rev25",
+      "status": "updated",
+      "old": 70170,
+      "new": 70170
+    },
+    {
+      "company": "英集芯",
+      "field": "np26",
+      "status": "updated",
+      "old": 10294,
+      "new": 10385
+    },
+    {
+      "company": "英集芯",
+      "field": "np25",
+      "status": "updated",
+      "old": 5085,
+      "new": 5192
+    },
+    {
+      "company": "英集芯",
+      "field": "gm26",
+      "status": "updated",
+      "old": 36.5,
+      "new": 36.5
+    },
+    {
+      "company": "英集芯",
+      "field": "gm25",
+      "status": "updated",
+      "old": 32.8,
+      "new": 32.8
+    },
+    {
+      "company": "英集芯",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "英集芯",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "英集芯",
+      "field": "sales26",
+      "status": "updated",
+      "old": 1978,
+      "new": 1978
+    },
+    {
+      "company": "英集芯",
+      "field": "inv26",
+      "status": "updated",
+      "old": 77599,
+      "new": 77599
+    },
+    {
+      "company": "英集芯",
+      "field": "inv25",
+      "status": "updated",
+      "old": 36249,
+      "new": 36249
+    },
+    {
+      "company": "英集芯",
+      "field": "cash",
+      "status": "updated",
+      "old": 4.2,
+      "new": 4.2
+    },
+    {
+      "company": "英集芯",
+      "field": "cfo",
+      "status": "updated",
+      "old": -1,
+      "new": -1.0
+    },
+    {
+      "company": "芯朋微",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "芯朋微",
+      "field": "rev26",
+      "status": "updated",
+      "old": 66511,
+      "new": 66511
+    },
+    {
+      "company": "芯朋微",
+      "field": "rev25",
+      "status": "updated",
+      "old": 63602,
+      "new": 63602
+    },
+    {
+      "company": "芯朋微",
+      "field": "np26",
+      "status": "updated",
+      "old": 15757,
+      "new": 15757
+    },
+    {
+      "company": "芯朋微",
+      "field": "np25",
+      "status": "updated",
+      "old": 8963,
+      "new": 9049
+    },
+    {
+      "company": "芯朋微",
+      "field": "gm26",
+      "status": "updated",
+      "old": 35.1,
+      "new": 35.1
+    },
+    {
+      "company": "芯朋微",
+      "field": "gm25",
+      "status": "updated",
+      "old": 37.3,
+      "new": 37.3
+    },
+    {
+      "company": "芯朋微",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "芯朋微",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "芯朋微",
+      "field": "sales26",
+      "status": "updated",
+      "old": 1191,
+      "new": 1191
+    },
+    {
+      "company": "芯朋微",
+      "field": "inv26",
+      "status": "updated",
+      "old": 33767,
+      "new": 33767
+    },
+    {
+      "company": "芯朋微",
+      "field": "inv25",
+      "status": "updated",
+      "old": 36961,
+      "new": 36961
+    },
+    {
+      "company": "芯朋微",
+      "field": "cash",
+      "status": "skipped",
+      "reason": "not in CASH_TABLE"
+    },
+    {
+      "company": "希荻微",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "希荻微",
+      "field": "rev26",
+      "status": "updated",
+      "old": 52874,
+      "new": 52874
+    },
+    {
+      "company": "希荻微",
+      "field": "rev25",
+      "status": "updated",
+      "old": 46645,
+      "new": 46645
+    },
+    {
+      "company": "希荻微",
+      "field": "np26",
+      "status": "updated",
+      "old": -3686,
+      "new": -3038
+    },
+    {
+      "company": "希荻微",
+      "field": "np25",
+      "status": "updated",
+      "old": -6081,
+      "new": -4469
+    },
+    {
+      "company": "希荻微",
+      "field": "gm26",
+      "status": "updated",
+      "old": 28.8,
+      "new": 28.8
+    },
+    {
+      "company": "希荻微",
+      "field": "gm25",
+      "status": "updated",
+      "old": 29.4,
+      "new": 29.4
+    },
+    {
+      "company": "希荻微",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "希荻微",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "希荻微",
+      "field": "sales26",
+      "status": "updated",
+      "old": 3481,
+      "new": 3481
+    },
+    {
+      "company": "希荻微",
+      "field": "inv26",
+      "status": "updated",
+      "old": 36070,
+      "new": 36070
+    },
+    {
+      "company": "希荻微",
+      "field": "inv25",
+      "status": "updated",
+      "old": 18212,
+      "new": 18212
+    },
+    {
+      "company": "希荻微",
+      "field": "cash",
+      "status": "skipped",
+      "reason": "not in CASH_TABLE"
+    },
+    {
+      "company": "必易微",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "必易微",
+      "field": "rev26",
+      "status": "updated",
+      "old": 45198,
+      "new": 45198
+    },
+    {
+      "company": "必易微",
+      "field": "rev25",
+      "status": "updated",
+      "old": 28258,
+      "new": 28258
+    },
+    {
+      "company": "必易微",
+      "field": "np26",
+      "status": "updated",
+      "old": 3806,
+      "new": 3760
+    },
+    {
+      "company": "必易微",
+      "field": "np25",
+      "status": "updated",
+      "old": -1206,
+      "new": -881
+    },
+    {
+      "company": "必易微",
+      "field": "gm26",
+      "status": "updated",
+      "old": 33.2,
+      "new": 33.2
+    },
+    {
+      "company": "必易微",
+      "field": "gm25",
+      "status": "updated",
+      "old": 29.6,
+      "new": 29.6
+    },
+    {
+      "company": "必易微",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "必易微",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "必易微",
+      "field": "sales26",
+      "status": "updated",
+      "old": 1658,
+      "new": 1658
+    },
+    {
+      "company": "必易微",
+      "field": "inv26",
+      "status": "updated",
+      "old": 19670,
+      "new": 19670
+    },
+    {
+      "company": "必易微",
+      "field": "inv25",
+      "status": "updated",
+      "old": 15896,
+      "new": 15896
+    },
+    {
+      "company": "必易微",
+      "field": "cash",
+      "status": "skipped",
+      "reason": "not in CASH_TABLE"
+    },
+    {
+      "company": "力芯微",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "力芯微",
+      "field": "rev26",
+      "status": "updated",
+      "old": 41956,
+      "new": 41956
+    },
+    {
+      "company": "力芯微",
+      "field": "rev25",
+      "status": "updated",
+      "old": 35139,
+      "new": 35139
+    },
+    {
+      "company": "力芯微",
+      "field": "np26",
+      "status": "updated",
+      "old": -171,
+      "new": -401
+    },
+    {
+      "company": "力芯微",
+      "field": "np25",
+      "status": "updated",
+      "old": 1401,
+      "new": 1668
+    },
+    {
+      "company": "力芯微",
+      "field": "gm26",
+      "status": "updated",
+      "old": 33.3,
+      "new": 33.3
+    },
+    {
+      "company": "力芯微",
+      "field": "gm25",
+      "status": "updated",
+      "old": 41.2,
+      "new": 41.2
+    },
+    {
+      "company": "力芯微",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "力芯微",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "力芯微",
+      "field": "sales26",
+      "status": "updated",
+      "old": 3314,
+      "new": 3314
+    },
+    {
+      "company": "力芯微",
+      "field": "inv26",
+      "status": "updated",
+      "old": 22899,
+      "new": 22899
+    },
+    {
+      "company": "力芯微",
+      "field": "inv25",
+      "status": "updated",
+      "old": 15072,
+      "new": 15072
+    },
+    {
+      "company": "力芯微",
+      "field": "cash",
+      "status": "skipped",
+      "reason": "not in CASH_TABLE"
+    },
+    {
+      "company": "美芯晟",
+      "field": "_report",
+      "status": "info",
+      "latest_date": "2026-06-30 00:00:00",
+      "prior_date": "2025-06-30 00:00:00",
+      "income_row_count": 20
+    },
+    {
+      "company": "美芯晟",
+      "field": "rev26",
+      "status": "updated",
+      "old": 27794,
+      "new": 27794
+    },
+    {
+      "company": "美芯晟",
+      "field": "rev25",
+      "status": "updated",
+      "old": 26509,
+      "new": 26509
+    },
+    {
+      "company": "美芯晟",
+      "field": "np26",
+      "status": "updated",
+      "old": -513,
+      "new": -513
+    },
+    {
+      "company": "美芯晟",
+      "field": "np25",
+      "status": "updated",
+      "old": 501,
+      "new": 501
+    },
+    {
+      "company": "美芯晟",
+      "field": "gm26",
+      "status": "updated",
+      "old": 32.7,
+      "new": 32.7
+    },
+    {
+      "company": "美芯晟",
+      "field": "gm25",
+      "status": "updated",
+      "old": 35,
+      "new": 35.0
+    },
+    {
+      "company": "美芯晟",
+      "field": "rd26",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "美芯晟",
+      "field": "rd25",
+      "status": "skipped",
+      "reason": "not available from public API / missing report row"
+    },
+    {
+      "company": "美芯晟",
+      "field": "sales26",
+      "status": "updated",
+      "old": 1372,
+      "new": 1372
+    },
+    {
+      "company": "美芯晟",
+      "field": "inv26",
+      "status": "updated",
+      "old": 16809,
+      "new": 16809
+    },
+    {
+      "company": "美芯晟",
+      "field": "inv25",
+      "status": "updated",
+      "old": 13617,
+      "new": 13617
+    },
+    {
+      "company": "美芯晟",
+      "field": "cash",
+      "status": "updated",
+      "old": 2.9,
+      "new": 2.9
+    },
+    {
+      "company": "美芯晟",
+      "field": "cfo",
+      "status": "updated",
+      "old": -0.5,
+      "new": -0.5
+    },
+    {
+      "company": "晶丰明源",
+      "field": "detail.fin.np25",
+      "status": "updated",
+      "old": 1980,
+      "new": 1576
+    },
+    {
+      "company": "纳芯微",
+      "field": "detail.fin.np26",
+      "status": "updated",
+      "old": 6506,
+      "new": 6759
+    },
+    {
+      "company": "芯朋微",
+      "field": "detail.fin.np25",
+      "status": "updated",
+      "old": 8963,
+      "new": 9049
+    },
+    {
+      "company": "杰华特",
+      "field": "detail.fin.np26",
+      "status": "updated",
+      "old": -54175,
+      "new": -51997
+    },
+    {
+      "company": "杰华特",
+      "field": "detail.fin.np25",
+      "status": "updated",
+      "old": -30114,
+      "new": -29509
+    }
+  ],
+  "notes": [
+    "Staff (研发人员) is rarely in the income/balance APIs used here — left unchanged unless a future source is added.",
+    "impairment (imp26/imp25) not reliably mapped from public balance rows — left unchanged.",
+    "Overseas / 帝奥微 qualitative DETAIL and overseasHtml are never overwritten by this script.",
+    "No Wind API is used."
+  ]
+}
