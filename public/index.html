@@ -8,62 +8,85 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <style>
   :root{
-  --bg:#0f1420; --panel:#161d2e; --panel2:#1c2438; --border:#2a3450;
-    --text:#e8ecf6; --sub:#9aa7c7; --accent:#4f8cff; --accent2:#38d9c9;
-    --good:#3ddc84; --bad:#ff6b6b; --warn:#ffb648;
-    --c1:#4f8cff; --c2:#38d9c9; --c3:#ffb648; --c4:#ff6b6b; --c5:#a78bfa; --c6:#f472b6; --c7:#facc15;
+    --bg:#f1f5f9; --panel:rgba(255,255,255,0.78); --panel2:rgba(255,255,255,0.92); --border:rgba(148,163,184,0.35);
+    --text:#0f172a; --sub:#64748b; --accent:#2563eb; --accent2:#0d9488;
+    --good:#10b981; --bad:#ef4444; --warn:#f59e0b;
+    --c1:#2563eb; --c2:#0d9488; --c3:#f59e0b; --c4:#ef4444; --c5:#8b5cf6; --c6:#ec4899; --c7:#eab308;
+    --shadow:0 4px 24px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.04);
+    --shadow-hover:0 12px 32px rgba(37,99,235,0.12), 0 4px 12px rgba(15,23,42,0.06);
   }
   *{box-sizing:border-box;}
   body{
     margin:0; font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-    background:linear-gradient(160deg,#0b0f1a,#141b2c 60%,#0b0f1a); color:var(--text);
+    background:
+      radial-gradient(ellipse 80% 50% at 10% -10%, rgba(37,99,235,0.10), transparent 50%),
+      radial-gradient(ellipse 60% 40% at 90% 5%, rgba(13,148,136,0.08), transparent 45%),
+      radial-gradient(ellipse 50% 30% at 50% 100%, rgba(37,99,235,0.05), transparent 40%),
+      linear-gradient(160deg,#f8fafc 0%,#f1f5f9 45%,#eef2f7 100%);
+    color:var(--text);
     min-height:100vh;
   }
   header{
     padding:28px 32px 18px; border-bottom:1px solid var(--border);
-    position:sticky; top:0; background:rgba(11,15,26,0.92); backdrop-filter:blur(8px); z-index:50;
+    position:sticky; top:0;
+    background:rgba(255,255,255,0.72); backdrop-filter:blur(16px) saturate(1.2);
+    -webkit-backdrop-filter:blur(16px) saturate(1.2);
+    z-index:50; box-shadow:0 1px 0 rgba(255,255,255,0.8);
   }
-  header h1{margin:0 0 4px; font-size:22px; letter-spacing:0.5px;}
+  header h1{margin:0 0 4px; font-size:22px; letter-spacing:0.3px; color:#0f172a; font-weight:700;}
   header p{margin:0; color:var(--sub); font-size:13px;}
   nav{
-    display:flex; flex-wrap:wrap; gap:8px; padding:16px 32px; border-bottom:1px solid var(--border);
-    background:rgba(15,20,32,0.6); position:sticky; top:76px; z-index:49;
+    display:flex; flex-wrap:wrap; gap:8px; padding:14px 32px; border-bottom:1px solid var(--border);
+    background:rgba(248,250,252,0.75); backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    position:sticky; top:76px; z-index:49;
   }
   nav button{
-    background:var(--panel2); color:var(--sub); border:1px solid var(--border); border-radius:999px;
-    padding:9px 18px; font-size:13.5px; cursor:pointer; transition:all .15s ease; white-space:nowrap;
+    background:rgba(255,255,255,0.85); color:var(--sub); border:1px solid var(--border); border-radius:999px;
+    padding:9px 18px; font-size:13.5px; cursor:pointer; transition:all .2s ease; white-space:nowrap;
+    box-shadow:0 1px 2px rgba(15,23,42,0.04);
   }
-  nav button:hover{ color:var(--text); border-color:var(--accent);}
-  nav button.active{ background:linear-gradient(135deg,var(--accent),#7aa8ff); color:#fff; border-color:transparent; font-weight:600; box-shadow:0 4px 14px rgba(79,140,255,.35);}
+  nav button:hover{ color:var(--accent); border-color:rgba(37,99,235,0.45); background:#fff; transform:translateY(-1px);}
+  nav button.active{
+    background:linear-gradient(135deg,#2563eb,#3b82f6); color:#fff; border-color:transparent; font-weight:600;
+    box-shadow:0 4px 16px rgba(37,99,235,.28), 0 0 0 1px rgba(37,99,235,.08);
+  }
   main{padding:26px 32px 60px; max-width:1400px; margin:0 auto;}
   .company-detail{max-width:1080px; margin:0 auto;}
   .pie-wrap{max-width:500px; margin:0 auto;}
   .down-grid{display:grid; grid-template-columns:1fr 1.4fr; gap:18px; align-items:stretch;}
-  .note-card{display:flex; flex-direction:column; justify-content:center; border-color:#4f8cff55;}
-  .note-body{font-size:14px; line-height:1.9; color:#e8edfa;}  .note-sub{margin-top:10px; font-size:12.5px; color:#9aa7c7;}
+  .note-card{display:flex; flex-direction:column; justify-content:center; border-color:rgba(37,99,235,0.28); background:linear-gradient(135deg,rgba(37,99,235,0.04),rgba(13,148,136,0.03));}
+  .note-body{font-size:14px; line-height:1.9; color:#334155;}  .note-sub{margin-top:10px; font-size:12.5px; color:var(--sub);}
   .tab-panel{display:none; animation:fadeIn .25s ease;}
   .tab-panel.active{display:block;}
   @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
 
   .section-title{
     font-size:18px; font-weight:700; margin:32px 0 14px; padding-left:10px;
-    border-left:4px solid var(--accent); display:flex; align-items:center; gap:8px;
+    border-left:4px solid var(--accent); display:flex; align-items:center; gap:8px; color:#0f172a;
   }
   .section-title:first-child{margin-top:0;}
   .section-sub{color:var(--sub); font-size:12.5px; margin:-8px 0 16px 14px;}
 
   .kpi-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:14px; margin-bottom:8px;}
   .kpi-card{
-    background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:16px 18px;
+    background:var(--panel2); border:1px solid var(--border); border-radius:16px; padding:16px 18px;
     position:relative; overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:transform .2s ease, box-shadow .2s ease;
   }
+  .kpi-card::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); opacity:0.85;
+  }
+  .kpi-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-hover); }
   .kpi-card .label{color:var(--sub); font-size:12px; margin-bottom:6px;}
-  .kpi-card .value{font-size:22px; font-weight:700; letter-spacing:0.3px;}
+  .kpi-card .value{font-size:22px; font-weight:700; letter-spacing:0.3px; color:#0f172a;}
   .kpi-card .delta{font-size:12.5px; margin-top:6px; display:inline-flex; align-items:center; gap:4px; padding:2px 8px; border-radius:999px;}
-  .kpi-note{font-size:11.5px; color:#ffb648; margin-top:8px; line-height:1.5;}
-  .delta.up{color:#0d3a24; background:var(--good);}
-  .delta.down{color:#4a1414; background:var(--bad);}
-  .delta.flat{color:#3a3010; background:var(--warn);}
+  .kpi-note{font-size:11.5px; color:#b45309; margin-top:8px; line-height:1.5;}
+  .delta.up{color:#065f46; background:rgba(16,185,129,0.18);}
+  .delta.down{color:#991b1b; background:rgba(239,68,68,0.14);}
+  .delta.flat{color:#92400e; background:rgba(245,158,11,0.16);}
 
   .grid-2{display:grid; grid-template-columns:1.4fr 1fr; gap:18px;}
   .grid-2.staff-grid{grid-template-columns:1fr 1.4fr;}
@@ -74,10 +97,15 @@
   @media (max-width:1000px){ .grid-2, .grid-3{grid-template-columns:1fr;} }
 
   .card{
-  background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:18px 20px;
+    background:var(--panel); border:1px solid var(--border); border-radius:18px; padding:18px 20px;
     margin-bottom:18px;
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    transition:transform .2s ease, box-shadow .2s ease;
   }
-  .card h3{margin:0 0 4px; font-size:15px;}
+  .card:hover{ box-shadow:0 8px 28px rgba(15,23,42,0.08); }
+  .card h3{margin:0 0 4px; font-size:15px; color:#0f172a;}
   .card .hint{color:var(--sub); font-size:12px; margin-bottom:10px;}
   .chart-wrap{position:relative; height:300px;}
   .chart-wrap.tall{height:340px;}
@@ -85,27 +113,28 @@
 
   ul.bullets{margin:0; padding-left:0; list-style:none;}
   ul.bullets li{
-    position:relative; padding:8px 0 8px 20px; border-bottom:1px dashed var(--border); font-size:13.5px; line-height:1.65; color:#dbe1f2;
+    position:relative; padding:8px 0 8px 20px; border-bottom:1px dashed var(--border); font-size:13.5px; line-height:1.65; color:#334155;
   }
   ul.bullets li:last-child{border-bottom:none;}
   ul.bullets li::before{content:"▸"; position:absolute; left:0; top:8px; color:var(--accent2); font-weight:700;}
   ul.bullets.compact li{padding:6px 0 6px 18px; font-size:13px;}
 
-  .qa{border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin-bottom:10px; background:var(--panel2);}
+  .qa{border:1px solid var(--border); border-radius:14px; padding:12px 14px; margin-bottom:10px; background:rgba(248,250,252,0.9);}
   .qa .q{color:var(--accent2); font-weight:600; font-size:13px; margin-bottom:5px;}
-  .qa .a{font-size:13px; line-height:1.6; color:#d7ddef;}
+  .qa .a{font-size:13px; line-height:1.6; color:#334155;}
 
-  .tag{display:inline-block; padding:3px 10px; border-radius:999px; font-size:11.5px; margin-right:6px; margin-bottom:6px; border:1px solid var(--border); color:var(--sub);}
-  .tag.hot{color:#fff; background:linear-gradient(135deg,var(--c4),#ff9d6b); border:none;}
-  .tag.good{color:#08331c; background:var(--good); border:none;}
-  .tag.info{color:#0a2540; background:var(--c2); border:none;}
+  .tag{display:inline-block; padding:3px 10px; border-radius:999px; font-size:11.5px; margin-right:6px; margin-bottom:6px; border:1px solid var(--border); color:var(--sub); background:rgba(255,255,255,0.8);}
+  .tag.hot{color:#fff; background:linear-gradient(135deg,#ef4444,#f97316); border:none;}
+  .tag.good{color:#065f46; background:rgba(16,185,129,0.2); border:1px solid rgba(16,185,129,0.25);}
+  .tag.info{color:#0f766e; background:rgba(13,148,136,0.15); border:1px solid rgba(13,148,136,0.25);}
 
   table.mini{width:100%; border-collapse:collapse; font-size:12.5px;}
   table.mini th, table.mini td{padding:7px 10px; text-align:right; border-bottom:1px solid var(--border);}
   table.mini th:first-child, table.mini td:first-child{text-align:left;}
-  table.mini th{color:var(--sub); font-weight:600;}
-  table.mini td.neg{color:var(--bad);}
-  table.mini td.pos{color:var(--good);}
+  table.mini th{color:var(--sub); font-weight:600; background:rgba(241,245,249,0.6);}
+  table.mini td.neg{color:#dc2626;}
+  table.mini td.pos{color:#059669;}
+  table.mini tbody tr:hover{background:rgba(37,99,235,0.03);}
 
   .badge-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
   .footnote{color:var(--sub); font-size:12px; margin-top:26px; line-height:1.8; border-top:1px solid var(--border); padding-top:16px;}
@@ -1454,7 +1483,7 @@
       ]
     }
   },
-  "overseasHtml": "\n  <div class=\"company-detail\">\n    <div class=\"company-hero\"><h2 style=\"color:#facc15\">海外厂商</h2><span class=\"code\">TI / ADI 最新季报要点</span></div>\n\n    <div class=\"section-title\" style=\"margin-top:8px;\">TI（德州仪器）2Q26 业绩</div>\n    <div class=\"kpi-row\">\n      <div class=\"kpi-card\"><div class=\"label\">营收 2Q26</div><div class=\"value\">54.6 亿美元</div>\n        <span class=\"delta up\">同比 +23% / 环比 +13%</span></div>\n      <div class=\"kpi-card\"><div class=\"label\">毛利率 2Q26</div><div class=\"value\">61%</div>\n        <span class=\"delta flat\">模拟龙头盈利韧性</span></div>\n      <div class=\"kpi-card\"><div class=\"label\">经营利润率 OPM</div><div class=\"value\">42%</div>\n        <span class=\"delta flat\">12寸产能+自有厂模式</span></div>\n    </div>\n    <div class=\"card\">\n      <h3>分市场表现（2Q26）</h3>\n      <table class=\"mini\">\n        <thead><tr><th>市场</th><th>YoY</th><th>QoQ</th></tr></thead>\n        <tbody>\n          <tr><td>工业</td><td class=\"pos\">~+30%</td><td class=\"pos\">~+10%</td></tr>\n          <tr><td>汽车</td><td class=\"pos\">mid-teens</td><td class=\"pos\">高个位数</td></tr>\n          <tr><td>数据中心</td><td class=\"pos\">翻倍</td><td class=\"pos\">~+20%</td></tr>\n          <tr><td>个人电子</td><td>持平</td><td class=\"pos\">高个位数</td></tr>\n          <tr><td>通信设备</td><td class=\"pos\">增长</td><td class=\"pos\">增长</td></tr>\n        </tbody>\n      </table>\n      <ul class=\"bullets compact\">\n        <li><b>工业：</b>全 sector、全区域普涨，确认工业周期回升；<b>能源基础设施和测试测量是上半年增长最快的 sector。</b></li>\n        <li><b>数据中心：</b>同比翻倍，为增速最高的市场。</li>\n      </ul>\n    </div>\n\n    <div class=\"section-title\">ADI 3Q26 业绩（FY26Q3，截至7月）</div>\n    <div class=\"kpi-row\">\n      <div class=\"kpi-card\"><div class=\"label\">营收 3Q26</div><div class=\"value\">40 亿美元</div>\n        <span class=\"delta up\">同比 +40%</span></div>\n      <div class=\"kpi-card\"><div class=\"label\">ATE + 数据中心</div><div class=\"value\">≈ 收入的 20%</div>\n        <span class=\"delta flat\">高景气板块</span></div>\n      <div class=\"kpi-card\"><div class=\"label\">航空航天国防 + ATE + 数据中心</div><div class=\"value\">≈ 收入的 30%</div>\n        <span class=\"delta flat\">合计占比</span></div>\n    </div>\n    <div class=\"grid-2\">\n      <div class=\"card\">\n        <h3>ADI 分市场收入结构（3Q26）</h3>\n        <div class=\"hint\">扇区标注为占比；图例含同比/环比增速</div>\n        <div class=\"chart-wrap tall pie-wrap\"><canvas id=\"adiMarket\"></canvas></div>\n      </div>\n      <div class=\"card\">\n        <h3>分市场明细</h3>\n        <table class=\"mini\">\n          <thead><tr><th>Market</th><th>收入</th><th>占比</th><th>YoY</th><th>QoQ</th></tr></thead>\n          <tbody>\n            <tr><td>工业</td><td>$19.72亿</td><td>49%</td><td class=\"pos\"><b>+53%</b></td><td class=\"pos\">+10%</td></tr>\n            <tr><td>汽车</td><td>$9.98亿</td><td>25%</td><td class=\"pos\">+16%</td><td class=\"pos\">+14%</td></tr>\n            <tr><td>通信</td><td>$6.55亿</td><td>16%</td><td class=\"pos\"><b>+84%</b></td><td class=\"pos\">+18%</td></tr>\n            <tr><td>消费</td><td>$3.97亿</td><td>10%</td><td class=\"pos\">+6%</td><td>持平</td></tr>\n          </tbody>\n        </table>\n        <ul class=\"bullets compact\">\n          <li><b>工业：</b>所有子业务同比正增长，ATE、电子测试测量、航空航天与国防、自动化领跑。</li>\n          <li><b>汽车：</b>增速远高于 SAAR，驱动来自下一代 ADAS、信息娱乐、电驱动。</li>\n          <li><b>通信：</b>数据中心已占通信收入 80%（Q2 还是 75%+）；光和电源两条线同比均 >100%，无线同比 +25%。按此推算本季度数据中心收入约 $5.2亿（年化 ~$21亿）。</li>\n          <li><b>消费：</b>在存储涨价扰动下仍稳住，智能手机/耳戴/穿戴同比正增长。</li>\n        </ul>\n      </div>\n    </div>\n    <div class=\"footnote\">注：TI 为 2Q26（日历年4-6月）业绩；ADI 财年与日历年错位，3Q26 约对应日历年 2026 年 5-7 月。</div>\n  </div>",
+  "overseasHtml": "\n  <div class=\"company-detail\">\n    <div class=\"company-hero\"><h2 style=\"color:#ca8a04\">海外厂商</h2><span class=\"code\">TI / ADI 最新季报要点</span></div>\n\n    <div class=\"section-title\" style=\"margin-top:8px;\">TI（德州仪器）2Q26 业绩</div>\n    <div class=\"kpi-row\">\n      <div class=\"kpi-card\"><div class=\"label\">营收 2Q26</div><div class=\"value\">54.6 亿美元</div>\n        <span class=\"delta up\">同比 +23% / 环比 +13%</span></div>\n      <div class=\"kpi-card\"><div class=\"label\">毛利率 2Q26</div><div class=\"value\">61%</div>\n        <span class=\"delta flat\">模拟龙头盈利韧性</span></div>\n      <div class=\"kpi-card\"><div class=\"label\">经营利润率 OPM</div><div class=\"value\">42%</div>\n        <span class=\"delta flat\">12寸产能+自有厂模式</span></div>\n    </div>\n    <div class=\"card\">\n      <h3>分市场表现（2Q26）</h3>\n      <table class=\"mini\">\n        <thead><tr><th>市场</th><th>YoY</th><th>QoQ</th></tr></thead>\n        <tbody>\n          <tr><td>工业</td><td class=\"pos\">~+30%</td><td class=\"pos\">~+10%</td></tr>\n          <tr><td>汽车</td><td class=\"pos\">mid-teens</td><td class=\"pos\">高个位数</td></tr>\n          <tr><td>数据中心</td><td class=\"pos\">翻倍</td><td class=\"pos\">~+20%</td></tr>\n          <tr><td>个人电子</td><td>持平</td><td class=\"pos\">高个位数</td></tr>\n          <tr><td>通信设备</td><td class=\"pos\">增长</td><td class=\"pos\">增长</td></tr>\n        </tbody>\n      </table>\n      <ul class=\"bullets compact\">\n        <li><b>工业：</b>全 sector、全区域普涨，确认工业周期回升；<b>能源基础设施和测试测量是上半年增长最快的 sector。</b></li>\n        <li><b>数据中心：</b>同比翻倍，为增速最高的市场。</li>\n      </ul>\n    </div>\n\n    <div class=\"section-title\">ADI 3Q26 业绩（FY26Q3，截至7月）</div>\n    <div class=\"kpi-row\">\n      <div class=\"kpi-card\"><div class=\"label\">营收 3Q26</div><div class=\"value\">40 亿美元</div>\n        <span class=\"delta up\">同比 +40%</span></div>\n      <div class=\"kpi-card\"><div class=\"label\">ATE + 数据中心</div><div class=\"value\">≈ 收入的 20%</div>\n        <span class=\"delta flat\">高景气板块</span></div>\n      <div class=\"kpi-card\"><div class=\"label\">航空航天国防 + ATE + 数据中心</div><div class=\"value\">≈ 收入的 30%</div>\n        <span class=\"delta flat\">合计占比</span></div>\n    </div>\n    <div class=\"grid-2\">\n      <div class=\"card\">\n        <h3>ADI 分市场收入结构（3Q26）</h3>\n        <div class=\"hint\">扇区标注为占比；图例含同比/环比增速</div>\n        <div class=\"chart-wrap tall pie-wrap\"><canvas id=\"adiMarket\"></canvas></div>\n      </div>\n      <div class=\"card\">\n        <h3>分市场明细</h3>\n        <table class=\"mini\">\n          <thead><tr><th>Market</th><th>收入</th><th>占比</th><th>YoY</th><th>QoQ</th></tr></thead>\n          <tbody>\n            <tr><td>工业</td><td>$19.72亿</td><td>49%</td><td class=\"pos\"><b>+53%</b></td><td class=\"pos\">+10%</td></tr>\n            <tr><td>汽车</td><td>$9.98亿</td><td>25%</td><td class=\"pos\">+16%</td><td class=\"pos\">+14%</td></tr>\n            <tr><td>通信</td><td>$6.55亿</td><td>16%</td><td class=\"pos\"><b>+84%</b></td><td class=\"pos\">+18%</td></tr>\n            <tr><td>消费</td><td>$3.97亿</td><td>10%</td><td class=\"pos\">+6%</td><td>持平</td></tr>\n          </tbody>\n        </table>\n        <ul class=\"bullets compact\">\n          <li><b>工业：</b>所有子业务同比正增长，ATE、电子测试测量、航空航天与国防、自动化领跑。</li>\n          <li><b>汽车：</b>增速远高于 SAAR，驱动来自下一代 ADAS、信息娱乐、电驱动。</li>\n          <li><b>通信：</b>数据中心已占通信收入 80%（Q2 还是 75%+）；光和电源两条线同比均 >100%，无线同比 +25%。按此推算本季度数据中心收入约 $5.2亿（年化 ~$21亿）。</li>\n          <li><b>消费：</b>在存储涨价扰动下仍稳住，智能手机/耳戴/穿戴同比正增长。</li>\n        </ul>\n      </div>\n    </div>\n    <div class=\"footnote\">注：TI 为 2Q26（日历年4-6月）业绩；ADI 财年与日历年错位，3Q26 约对应日历年 2026 年 5-7 月。</div>\n  </div>",
   "companyOrder": [
     "艾为电子",
     "晶丰明源",
@@ -1567,16 +1596,16 @@ async function loadDataAndRender(){
   }
 }
 
-const COLORS = {c1:"#4f8cff",c2:"#38d9c9",c3:"#ffb648",c4:"#ff6b6b",c5:"#a78bfa",c6:"#f472b6",c7:"#facc15"};
+const COLORS = {c1:"#2563eb",c2:"#0d9488",c3:"#f59e0b",c4:"#ef4444",c5:"#8b5cf6",c6:"#ec4899",c7:"#eab308"};
 
 // 数据标签插件：全局关闭，仅在饼/环形图上开启
 Chart.register(ChartDataLabels);
 Chart.defaults.set("plugins.datalabels", { display:false });
 const SEG_LABEL_OPTS = {
   display:true,
-  color:"#fff",
+  color:"#0f172a",
   font:{ size:11, weight:"bold" },
-  textStrokeColor:"#0f1420",
+  textStrokeColor:"#ffffff",
   textStrokeWidth:3,
   formatter:(v,ctx)=>{
     const total = ctx.dataset.data.reduce((a,b)=>a+b,0);
@@ -1603,7 +1632,7 @@ function renderOverview(){
   const panel = document.getElementById("panel-overview");
   panel.innerHTML = `
     <div class="section-title">13家A股模拟芯片可比公司 · 2026H1 全景</div>
-    <div class="section-sub">深色高亮为本报告重点分析的7家公司；红色为南芯科技专项标注；数据来源 Wind，合并报表口径</div>
+    <div class="section-sub">蓝色高亮为本报告重点分析的7家公司；红色为南芯科技专项标注；数据来源 Wind，合并报表口径</div>
 
     <div class="card">
       <h3>营业总收入对比（万元）</h3>
@@ -1715,8 +1744,8 @@ function renderOverview(){
   `;
 
   const labels = ALL_COMPANIES.map(c=>c.name);
-  const focusColor = "#4f8cff", otherColor = "#3a4562";
-  const NANXIN = "#ff4757"; // 南芯科技专项高亮色
+  const focusColor = "#2563eb", otherColor = "#94a3b8";
+  const NANXIN = "#e11d48"; // 南芯科技专项高亮色（适配浅色底）
 
   const revSorted = [...ALL_COMPANIES].sort((a,b)=>b.rev26-a.rev26);
   chartInstances.chartRevAll = new Chart(document.getElementById("chartRevAll"), {
@@ -1733,14 +1762,14 @@ function renderOverview(){
   const gmSorted = [...ALL_COMPANIES].sort((a,b)=>b.gm26-a.gm26);
   const gmOpts = baseBarOptions("%", true, true);
   gmOpts.plugins.datalabels = { ...BAR_DL, formatter:(v)=> v.toFixed(1)+"%" };
-  gmOpts.scales.x.ticks.color = gmSorted.map(c=> c.gm26>c.gm25 ? "#3ddc84" : "#9aa7c7");
+  gmOpts.scales.x.ticks.color = gmSorted.map(c=> c.gm26>c.gm25 ? "#059669" : "#64748b");
   chartInstances.chartGmAll = new Chart(document.getElementById("chartGmAll"), {
   type:"bar",
     data:{ labels: gmSorted.map(c=>c.name + (c.gm26>c.gm25 ? " ▲" : "")), datasets:[
       {label:"2026H1毛利率", data: gmSorted.map(c=>c.gm26),
-        backgroundColor: gmSorted.map(c=> c.name==="南芯科技"?NANXIN:"#4f8cff"), borderRadius:5},
+        backgroundColor: gmSorted.map(c=> c.name==="南芯科技"?NANXIN:"#2563eb"), borderRadius:5},
       {label:"2025H1毛利率", data: gmSorted.map(c=>c.gm25),
-        backgroundColor: gmSorted.map(c=> c.name==="南芯科技"?"#a63d4d":"#3a4562"), borderRadius:5},
+        backgroundColor: gmSorted.map(c=> c.name==="南芯科技"?"#fda4af":"#94a3b8"), borderRadius:5},
     ]},
     options: gmOpts
   });
@@ -1750,7 +1779,7 @@ function renderOverview(){
     type:"bar",
  data:{ labels: yoyVals.map(x=>x.name),
   datasets:[{ label:"营收同比增速(%)", data: yoyVals.map(x=>x.v),
-        backgroundColor: yoyVals.map(x=> x.name==="南芯科技"?NANXIN:(x.v>=0?"#4f8cff":"#3ddc84")), borderRadius:6 }]},
+        backgroundColor: yoyVals.map(x=> x.name==="南芯科技"?NANXIN:(x.v>=0?"#2563eb":"#059669")), borderRadius:6 }]},
     options: baseBarOptions("%", true)
   });
 
@@ -1760,8 +1789,8 @@ function renderOverview(){
     data:{ labels: npSorted.map(c=>c.name),
    datasets:[
         {label:"2026H1", data: npSorted.map(c=>c.np26),
-          backgroundColor: npSorted.map(c=> c.name==="南芯科技"?NANXIN:"#38d9c9"), borderRadius:5},
-     {label:"2025H1", data: npSorted.map(c=>c.np25), backgroundColor:"#3a4562", borderRadius:5},
+          backgroundColor: npSorted.map(c=> c.name==="南芯科技"?NANXIN:"#0d9488"), borderRadius:5},
+     {label:"2025H1", data: npSorted.map(c=>c.np25), backgroundColor:"#94a3b8", borderRadius:5},
     ]},
     options: baseBarOptions("万元", true, true)
   });
@@ -1771,7 +1800,7 @@ function renderOverview(){
     type:"bar",
     data:{ labels: rdRate.map(x=>x.name),
       datasets:[{ label:"研发费用率(%)", data: rdRate.map(x=>x.v),
-        backgroundColor: rdRate.map(x=> x.name==="南芯科技"?NANXIN:"#ffb648"), borderRadius:6 }]},
+        backgroundColor: rdRate.map(x=> x.name==="南芯科技"?NANXIN:"#f59e0b"), borderRadius:6 }]},
     options: (()=>{ const o2=baseBarOptions("%", true); o2.plugins.datalabels={ ...BAR_DL, formatter:(v)=>v.toFixed(1)+"%" }; return o2; })()
   });
 
@@ -1781,9 +1810,9 @@ function renderOverview(){
     data:{ labels: expSorted.map(c=>c.name),
       datasets:[
         {label:"2026H1", data: expSorted.map(c=>c.rd26),
-          backgroundColor: expSorted.map(c=> c.name==="南芯科技"?NANXIN:"#4f8cff"), borderRadius:5},
+          backgroundColor: expSorted.map(c=> c.name==="南芯科技"?NANXIN:"#2563eb"), borderRadius:5},
         {label:"2025H1", data: expSorted.map(c=>c.rd25),
-          backgroundColor: expSorted.map(c=> c.name==="南芯科技"?"#a63d4d":"#3a4562"), borderRadius:5},
+          backgroundColor: expSorted.map(c=> c.name==="南芯科技"?"#fda4af":"#94a3b8"), borderRadius:5},
       ]},
     options: baseBarOptions("万元", true, true)
   });
@@ -1795,9 +1824,9 @@ function renderOverview(){
     data:{ labels: invSorted.map(c=>c.name),
       datasets:[
         {label:"2026H1", data: invSorted.map(c=>c.inv26),
-          backgroundColor: invSorted.map(c=> c.name==="南芯科技"?NANXIN:"#4f8cff"), borderRadius:5},
+          backgroundColor: invSorted.map(c=> c.name==="南芯科技"?NANXIN:"#2563eb"), borderRadius:5},
         {label:"2025H1", data: invSorted.map(c=>c.inv25),
-          backgroundColor: invSorted.map(c=> c.name==="南芯科技"?"#a63d4d":"#3a4562"), borderRadius:5},
+          backgroundColor: invSorted.map(c=> c.name==="南芯科技"?"#fda4af":"#94a3b8"), borderRadius:5},
       ]},
     options: baseBarOptions("万元", true, true)
   });
@@ -1817,9 +1846,9 @@ function renderOverview(){
     data:{ labels: invRatioSorted.map(c=>c.name),
       datasets:[
         {label:"2026H1", data: invRatioSorted.map(c=>c.ratio26),
-          backgroundColor: invRatioSorted.map(c=> c.name==="南芯科技"?NANXIN:"#4f8cff"), borderRadius:5},
+          backgroundColor: invRatioSorted.map(c=> c.name==="南芯科技"?NANXIN:"#2563eb"), borderRadius:5},
         {label:"2025H1", data: invRatioSorted.map(c=>c.ratio25),
-          backgroundColor: invRatioSorted.map(c=> c.name==="南芯科技"?"#a63d4d":"#3a4562"), borderRadius:5},
+          backgroundColor: invRatioSorted.map(c=> c.name==="南芯科技"?"#fda4af":"#94a3b8"), borderRadius:5},
       ]},
     options: invRatioOpts
   });
@@ -1830,9 +1859,9 @@ function renderOverview(){
     data:{ labels: impSorted.map(c=>c.name),
       datasets:[
         {label:"2026H1", data: impSorted.map(c=>c.imp26),
-          backgroundColor: impSorted.map(c=> c.name==="南芯科技"?NANXIN:"#ff6b6b"), borderRadius:5},
+          backgroundColor: impSorted.map(c=> c.name==="南芯科技"?NANXIN:"#ef4444"), borderRadius:5},
         {label:"2025H1", data: impSorted.map(c=>c.imp25),
-          backgroundColor: impSorted.map(c=> c.name==="南芯科技"?"#a63d4d":"#3a4562"), borderRadius:5},
+          backgroundColor: impSorted.map(c=> c.name==="南芯科技"?"#fda4af":"#94a3b8"), borderRadius:5},
       ]},
     options: baseBarOptions("万元", true, true)
   });
@@ -1860,9 +1889,9 @@ function renderOverview(){
     data:{ labels: staffSorted.map(c=>c.name),
       datasets:[
         {label:"2026H1", data: staffSorted.map(c=>c.rd26),
-          backgroundColor: staffSorted.map(c=> c.name==="南芯科技"?NANXIN:"#4f8cff"), borderRadius:5},
+          backgroundColor: staffSorted.map(c=> c.name==="南芯科技"?NANXIN:"#2563eb"), borderRadius:5},
         {label:"2025H1", data: staffSorted.map(c=>c.rd25),
-          backgroundColor: staffSorted.map(c=> c.name==="南芯科技"?"#a63d4d":"#3a4562"), borderRadius:5},
+          backgroundColor: staffSorted.map(c=> c.name==="南芯科技"?"#fda4af":"#94a3b8"), borderRadius:5},
       ]},
     options: baseBarOptions("人", true, true)
   });
@@ -1873,9 +1902,9 @@ function renderOverview(){
     data:{ labels: staffPctSorted.map(c=>c.name),
       datasets:[
         {label:"2026H1", data: staffPctSorted.map(c=>c.pct26),
-          backgroundColor: staffPctSorted.map(c=> c.name==="南芯科技"?NANXIN:"#38d9c9"), borderRadius:5},
+          backgroundColor: staffPctSorted.map(c=> c.name==="南芯科技"?NANXIN:"#0d9488"), borderRadius:5},
         {label:"2025H1", data: staffPctSorted.map(c=>c.pct25),
-          backgroundColor: staffPctSorted.map(c=> c.name==="南芯科技"?"#a63d4d":"#3a4562"), borderRadius:5},
+          backgroundColor: staffPctSorted.map(c=> c.name==="南芯科技"?"#fda4af":"#94a3b8"), borderRadius:5},
       ]},
     options: (()=>{ const o2=baseBarOptions("%", true, true); o2.plugins.datalabels={ ...BAR_DL, formatter:(v)=>v.toFixed(1)+"%" }; return o2; })()
   });
@@ -1886,8 +1915,8 @@ function renderOverview(){
       const d = c.rd26-c.rd25;
       const p = c.pct26-c.pct25;
       const maxPct = Math.max(...STAFF.map(x=>x.pct26)), minPct = Math.min(...STAFF.map(x=>x.pct26));
-      const pctMark = c.pct26===maxPct ? '<span style="color:#3ddc84;font-size:11px;margin-left:4px;">最高</span>' : c.pct26===minPct ? '<span style="color:#ff6b6b;font-size:11px;margin-left:4px;">最低</span>' : '';
-      return `<tr${c.name==="南芯科技"?' style="background:rgba(255,71,87,0.16);"':''}><td>${c.name==="南芯科技"?`<b style="color:#ff4757;">${c.name}</b>`:c.name}</td><td>${Math.round(c.rd26/c.pct26*100).toLocaleString()}</td><td>${c.rd26}</td><td style="text-align:center;">${c.pct26.toFixed(1)}%${pctMark}</td><td>${c.pct25.toFixed(1)}%</td><td class="${p>=0?'pos':'neg'}">${p>=0?'+':''}${p.toFixed(1)}pct</td><td class="${d>=0?'pos':'neg'}">${d>=0?'+':''}${d} 人</td></tr>`;
+      const pctMark = c.pct26===maxPct ? '<span style="color:#059669;font-size:11px;margin-left:4px;">最高</span>' : c.pct26===minPct ? '<span style="color:#ff6b6b;font-size:11px;margin-left:4px;">最低</span>' : '';
+      return `<tr${c.name==="南芯科技"?' style="background:rgba(225,29,72,0.10);"':''}><td>${c.name==="南芯科技"?`<b style="color:#e11d48;">${c.name}</b>`:c.name}</td><td>${Math.round(c.rd26/c.pct26*100).toLocaleString()}</td><td>${c.rd26}</td><td style="text-align:center;">${c.pct26.toFixed(1)}%${pctMark}</td><td>${c.pct25.toFixed(1)}%</td><td class="${p>=0?'pos':'neg'}">${p>=0?'+':''}${p.toFixed(1)}pct</td><td class="${d>=0?'pos':'neg'}">${d>=0?'+':''}${d} 人</td></tr>`;
     }).join("")}</tbody>
     <tfoot><tr style="color:var(--sub);"><td>合计/平均</td><td>${totHead26.toLocaleString()}</td><td>${totRd26.toLocaleString()}</td><td style="text-align:center;">${avgPct26.toFixed(1)}%</td><td>—</td><td>${pctChangeAvg>=0?'+':''}${pctChangeAvg.toFixed(1)}pct</td><td class="pos">+${rdGrowth} 人</td></tr></tfoot>`;
 
@@ -1898,14 +1927,14 @@ function renderOverview(){
     <tbody>${[...CASH_TABLE].sort((a,b)=>b.cfo-a.cfo).map(c=>{
       const over = OVERSEAS_NAMES2.includes(c.name);
       const cls = c.cfo>0 ? "pos" : (c.cfo<0 ? "neg" : "");
-      return `<tr${c.name==="南芯科技"?' style="background:rgba(255,71,87,0.16);"':''}${over?' style="color:var(--sub);"':''}><td>${c.name==="南芯科技"?`<b style="color:#ff4757;">${c.name}</b>`:c.name}</td><td>${c.cash==null?"—":c.cash.toLocaleString()}</td><td>${c.fin==null?"—":c.fin.toLocaleString()}</td><td><b>${c.avail==null?"—":c.avail.toLocaleString()}</b></td><td class="${cls}" style="text-align:center;font-weight:600;">${c.cfo>0?"+":""}${c.cfo.toLocaleString()}</td></tr>`;
+      return `<tr${c.name==="南芯科技"?' style="background:rgba(225,29,72,0.10);"':''}${over?' style="color:var(--sub);"':''}><td>${c.name==="南芯科技"?`<b style="color:#e11d48;">${c.name}</b>`:c.name}</td><td>${c.cash==null?"—":c.cash.toLocaleString()}</td><td>${c.fin==null?"—":c.fin.toLocaleString()}</td><td><b>${c.avail==null?"—":c.avail.toLocaleString()}</b></td><td class="${cls}" style="text-align:center;font-weight:600;">${c.cfo>0?"+":""}${c.cfo.toLocaleString()}</td></tr>`;
     }).join("")}</tbody>`;
 }
 
 // 柱顶绝对值标签：Y轴从0开始时仍能直接读出数值
 const BAR_DL = {
   display:true, anchor:"end", align:"top",
-  color:"#dbe1f2", font:{ size:10.5, weight:"600" },
+  color:"#334155", font:{ size:10.5, weight:"600" },
   formatter:(v)=> v==null ? "" : (Math.abs(v)>=10000 ? (v/10000).toFixed(2)+"亿" : v.toLocaleString(undefined,{maximumFractionDigits:1})),
 };
 
@@ -1913,12 +1942,12 @@ function baseBarOptions(unit, rotate, showLegend){
   return {
     responsive:true, maintainAspectRatio:false,
     plugins:{
-      legend:{ display: !!showLegend, position:"top", labels:{ color:"#cfd7ee", font:{size:11.5}, boxWidth:14 } },
-      tooltip:{ callbacks:{ label:(ctx)=> ctx.dataset.label+": "+ctx.parsed.y.toLocaleString(undefined,{maximumFractionDigits:1})+unit } }
+      legend:{ display: !!showLegend, position:"top", labels:{ color:"#475569", font:{size:11.5}, boxWidth:14 } },
+      tooltip:{ backgroundColor:"#ffffff", titleColor:"#0f172a", bodyColor:"#334155", borderColor:"rgba(148,163,184,0.45)", borderWidth:1, callbacks:{ label:(ctx)=> ctx.dataset.label+": "+ctx.parsed.y.toLocaleString(undefined,{maximumFractionDigits:1})+unit } }
     },
     scales:{
-      x:{ ticks:{ color:"#9aa7c7", font:{size:11}, maxRotation: rotate?55:0, minRotation: rotate?35:0 }, grid:{ color:"rgba(255,255,255,0.04)" } },
-      y:{ ticks:{ color:"#9aa7c7", font:{size:11} }, grid:{ color:"rgba(255,255,255,0.06)" } }
+      x:{ ticks:{ color:"#64748b", font:{size:11}, maxRotation: rotate?55:0, minRotation: rotate?35:0 }, grid:{ color:"rgba(15,23,42,0.06)" } },
+      y:{ ticks:{ color:"#64748b", font:{size:11} }, grid:{ color:"rgba(15,23,42,0.08)" } }
     }
   };
 }
@@ -1935,8 +1964,8 @@ function renderCompany(name){
       data:{ labels:["工业（+53% / +10%）","汽车（+16% / +14%）","通信（+84% / +18%）","消费（+6% / 持平）"],
         datasets:[{ data:[49,25,16,10],
           backgroundColor:[COLORS.c1,COLORS.c2,COLORS.c3,COLORS.c4],
-          borderColor:"#161d2e", borderWidth:2 }]},
-      options:{ plugins:{ legend:{ position:"right", labels:{color:"#cfd7ee", font:{size:11}, boxWidth:12} },
+          borderColor:"#ffffff", borderWidth:2 }]},
+      options:{ plugins:{ legend:{ position:"right", labels:{color:"#475569", font:{size:11}, boxWidth:12} },
         datalabels:SEG_LABEL_OPTS } }
     });
     return;
@@ -2068,7 +2097,7 @@ function renderCompany(name){
     chartInstances["rev_"+name] = new Chart(document.getElementById("c_rev_"+name), {
       type:"bar",
       data:{ labels:["2025H1","2026H1"], datasets:[{ label:"营业总收入(万元)", data:[f.rev25, f.rev26],
-        backgroundColor:["#3a4562", color], borderRadius:8 }]},
+        backgroundColor:["#94a3b8", color], borderRadius:8 }]},
   options: (()=>{ const o2=baseBarOptions("万元", false); o2.plugins.datalabels=BAR_DL; return o2; })()
     });
 
@@ -2076,7 +2105,7 @@ function renderCompany(name){
    type:"bar",
       data:{ labels:["毛利率","净利率"],
    datasets:[
-      {label:"2025H1", data:[f.gm25, (f.np25/f.rev25*100)], backgroundColor:"#3a4562", borderRadius:8},
+      {label:"2025H1", data:[f.gm25, (f.np25/f.rev25*100)], backgroundColor:"#94a3b8", borderRadius:8},
      {label:"2026H1", data:[f.gm26, (f.np26/f.rev26*100)], backgroundColor:color, borderRadius:8},
         ]},
       options: (()=>{ const o2=baseBarOptions("%", false, true); o2.plugins.datalabels={ ...BAR_DL, formatter:(v)=>v.toFixed(1)+"%" }; return o2; })()
@@ -2086,13 +2115,13 @@ function renderCompany(name){
       chartInstances["inv_"+name] = new Chart(document.getElementById("c_inv_"+name), {
         type:"bar",
         data:{ labels:["2025H1","2026H1"], datasets:[{ label:"存货净额(万元)", data:[bal.inv25, bal.inv26],
-          backgroundColor:["#3a4562", color], borderRadius:8 }]},
+          backgroundColor:["#94a3b8", color], borderRadius:8 }]},
         options: (()=>{ const o2=baseBarOptions("万元", false); o2.plugins.datalabels=BAR_DL; return o2; })()
       });
       chartInstances["imp_"+name] = new Chart(document.getElementById("c_imp_"+name), {
         type:"bar",
         data:{ labels:["2025H1","2026H1"], datasets:[{ label:"资产减值损失(万元)", data:[bal.imp25, bal.imp26],
-          backgroundColor:["#3a4562", color], borderRadius:8 }]},
+          backgroundColor:["#94a3b8", color], borderRadius:8 }]},
         options: (()=>{ const o2=baseBarOptions("万元", false); o2.plugins.datalabels={ ...BAR_DL, align:"bottom" }; return o2; })()
       });
     }
@@ -2104,18 +2133,18 @@ function renderCompany(name){
       type:"doughnut",
       data:{ labels: d.segMix.map(s=>s.label + (s.growth? " ("+s.growth+")" : "")),
         datasets:[{ data: d.segMix.map(s=>s.value),
-          backgroundColor:[COLORS.c1,COLORS.c2,COLORS.c3,COLORS.c4,COLORS.c5,COLORS.c6,COLORS.c7,"#7d8bb0"],
-     borderColor:"#161d2e", borderWidth:2 }]},
-      options:{ plugins:{ legend:{ position: d.segMix2?"right":"bottom", labels:{color:"#cfd7ee", font:{size:10.5}, boxWidth:12} }, datalabels:SEG_LABEL_OPTS }, cutout:"50%", ...(d.segMix2 ? { radius:64 } : {}) }
+          backgroundColor:[COLORS.c1,COLORS.c2,COLORS.c3,COLORS.c4,COLORS.c5,COLORS.c6,COLORS.c7,"#94a3b8"],
+     borderColor:"#ffffff", borderWidth:2 }]},
+      options:{ plugins:{ legend:{ position: d.segMix2?"right":"bottom", labels:{color:"#475569", font:{size:10.5}, boxWidth:12} }, datalabels:SEG_LABEL_OPTS }, cutout:"50%", ...(d.segMix2 ? { radius:64 } : {}) }
     });
   } else {
     chartInstances["seg_"+name] = new Chart(document.getElementById("c_seg_"+name), {
       type:"pie",
       data:{ labels: d.segMix.map(s=> s.label + (s.growth? "（"+(s.value>=10000?(s.value/10000).toFixed(2)+"亿":s.value.toLocaleString()+"万")+"，"+s.growth+"）" : "")),
         datasets:[{ label:"营收(万元)", data: d.segMix.map(s=>s.value), rawLabels: d.segMix,
-          backgroundColor:[COLORS.c1,COLORS.c2,COLORS.c3,COLORS.c4,COLORS.c5,COLORS.c6,COLORS.c7,"#7d8bb0"],
-          borderColor:"#161d2e", borderWidth:2 }]},
-      options:{ plugins:{ legend:{ position: d.segMix2?"right":"bottom", labels:{color:"#cfd7ee", font:{size:10.5}, boxWidth:12} },
+          backgroundColor:[COLORS.c1,COLORS.c2,COLORS.c3,COLORS.c4,COLORS.c5,COLORS.c6,COLORS.c7,"#94a3b8"],
+          borderColor:"#ffffff", borderWidth:2 }]},
+      options:{ plugins:{ legend:{ position: d.segMix2?"right":"bottom", labels:{color:"#475569", font:{size:10.5}, boxWidth:12} },
         tooltip:{ callbacks:{
           title:(items)=>{ const raw = items[0].dataset.rawLabels[items[0].dataIndex]; return raw.label + (raw.growth? "（"+raw.growth+"）" : ""); },
           label:(ctx)=>{
@@ -2136,8 +2165,8 @@ function renderCompany(name){
       data:{ labels: d.segMix2.map(s=>s.label + (s.growth? "（"+s.growth+"）" : "")),
         datasets:[{ data: d.segMix2.map(s=>s.value),
           backgroundColor:[COLORS.c1,COLORS.c3,COLORS.c4,COLORS.c6],
-          borderColor:"#161d2e", borderWidth:2 }]},
-      options:{ plugins:{ legend:{ position:"right", labels:{color:"#cfd7ee", font:{size:10.5}, boxWidth:12} },
+          borderColor:"#ffffff", borderWidth:2 }]},
+      options:{ plugins:{ legend:{ position:"right", labels:{color:"#475569", font:{size:10.5}, boxWidth:12} },
         datalabels:{ ...SEG_LABEL_OPTS } }, radius:64 }
     });
   }
